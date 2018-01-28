@@ -247,7 +247,7 @@ export default new Environment({
 * Learn GraphQL <http://graphql.org/learn>
 * Querying Relational Data with GraphQL <https://scaphold.io/community/blog/querying-relational-data-with-graphql/>
 * Redux and Relay <https://www.reindex.io/blog/redux-and-relay>
-
+* Comparing Relay Modern & Apollo <https://blog.smartlogic.io/comparing-relay-modern-and-apollo-graphql-client-frameworks/>
 
 ---
 
