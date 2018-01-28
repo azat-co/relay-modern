@@ -6,13 +6,13 @@ import {
   graphql
 } from 'react-relay'
 
-class ProductList extends React.Component {
+class ListPage extends React.Component {
 
   render () {
     console.log('ListPage - render - environment', this.props.relay.environment)
     return (
       <div className='w-100 flex justify-center'>
-        <Link to='/create' className='btn btn-primary fixed bg-white top-0 right-0 pa4 ttu dim black no-underline'>
+        <Link to='/create' className='fixed bg-white top-0 right-0 pa4 ttu dim black no-underline'>
           + New Post
         </Link>
         <div className='w-100' style={{ maxWidth: 400 }}>
@@ -26,16 +26,15 @@ class ProductList extends React.Component {
 }
 
 export default createFragmentContainer(ListPage, graphql`
-  fragment ProductList_viewer on Viewer {
-    ...Product_viewer
-    allProducts(last: 100, orderBy: createdAt_DESC) @connection(key: "ProductList_allProducts", filters: []) {
+  fragment ListPage_viewer on Viewer {
+    ...Post_viewer
+    allPosts(last: 100, orderBy: createdAt_DESC) @connection(key: "ListPage_allPosts", filters: []) {
       edges {
         node {
           id
           description
-          name
           imageUrl
-          ...Product_product
+          ...Post_post
         }
       }
     }
