@@ -9,10 +9,11 @@ import {
 class ProductList extends React.Component {
 
   render () {
-    console.log('ListPage - render - environment', this.props.relay.environment)
+    console.log('Product List - render - environment', this.props.relay.environment)
     return (
-      <div className='w-100 flex justify-center'>
-        <div className='w-100' style={{ maxWidth: 400 }}>
+      <div className=''>
+        <h2>Product List</h2>
+        <div className='' style={{ maxWidth: 400 }}>
           {this.props.viewer.allProducts.edges.map(({node}) =>
             <Product key={node.id} product={node} viewer={this.props.viewer} />
           )}
@@ -25,7 +26,7 @@ class ProductList extends React.Component {
 export default createFragmentContainer(ProductList, graphql`
   fragment ProductList_viewer on Viewer {
     ...Product_viewer
-    allProducts(last: 100, orderBy: createdAt_DESC) @connection(key: "ProductList_allProducts", filters: []) {
+    allProducts(last: 100, orderBy: name_DESC) @connection(key: "ProductList_allProducts", filters: []) {
       edges {
         node {
           id

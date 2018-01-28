@@ -8,8 +8,8 @@ import environment from './createRelayEnvironment'
 import ProductList from './ProductList'
 import CustomerList from './CustomerList'
 
-const HomeAllPostQuery = graphql`
-  query HomeAllPostQuery {
+const HomeQuery = graphql`
+  query HomeQuery {
     viewer {
       ...ProductList_viewer
       ...CustomerList_viewer
@@ -23,14 +23,14 @@ class Home extends Component {
       <div>
         <QueryRenderer
           environment={environment}
-          query={HomeAllPostQuery}
+          query={HomeQuery}
           render={({error, props}) => {
             if (error) {
               return <div>{error.message}</div>
             } else if (props) {
               return <div>
                 <ProductList viewer={props.viewer} />
-                <CustomerList/>
+                <CustomerList viewer={props.viewer}/>
                 </div>
             }
             return <div>Loading</div>

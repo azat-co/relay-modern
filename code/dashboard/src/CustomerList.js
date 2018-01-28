@@ -9,10 +9,12 @@ import {
 class CustomerList extends React.Component {
 
   render () {
-    console.log('Customer List rendering...', this.props.relay.environment)
+    console.log('Customer List rendering...', this.props)
+    if (!this.props.viewer) return false
     return (
-      <div className='w-100 flex justify-center'>      
-        <div className='w-100' style={{ maxWidth: 400 }}>
+      <div className=''>
+        <h2>Customer List</h2>      
+        <div className='' style={{ maxWidth: 400 }}>
           {this.props.viewer.allCustomers.edges.map(({node}) =>
             <Customer key={node.id} customer={node} viewer={this.props.viewer} />
           )}
