@@ -1,5 +1,5 @@
 import React from 'react'
-import Post from './Post'
+import Product from './Product'
 import { Link } from 'react-router-dom'
 import {
   createFragmentContainer,
@@ -12,12 +12,9 @@ class ProductList extends React.Component {
     console.log('ListPage - render - environment', this.props.relay.environment)
     return (
       <div className='w-100 flex justify-center'>
-        <Link to='/create' className='btn btn-primary fixed bg-white top-0 right-0 pa4 ttu dim black no-underline'>
-          + New Post
-        </Link>
         <div className='w-100' style={{ maxWidth: 400 }}>
-          {this.props.viewer.allPosts.edges.map(({node}) =>
-            <Post key={node.id} post={node} viewer={this.props.viewer} />
+          {this.props.viewer.allProducts.edges.map(({node}) =>
+            <Product key={node.id} product={node} viewer={this.props.viewer} />
           )}
         </div>
       </div>
@@ -25,7 +22,7 @@ class ProductList extends React.Component {
   }
 }
 
-export default createFragmentContainer(ListPage, graphql`
+export default createFragmentContainer(ProductList, graphql`
   fragment ProductList_viewer on Viewer {
     ...Product_viewer
     allProducts(last: 100, orderBy: createdAt_DESC) @connection(key: "ProductList_allProducts", filters: []) {

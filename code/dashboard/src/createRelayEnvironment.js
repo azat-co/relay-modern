@@ -5,7 +5,7 @@ const {
   Store,
 } = require('relay-runtime')
 
-const __RELAY_API_ENDPOINT__ = 'https://api.graph.cool/relay/v1/cjcyfbdyx01bm01582zl2xjnn'
+const __RELAY_API_ENDPOINT__ = 'https://api.graph.cool/relay/v1/cjcz40h3u0j3u01588xw2yeph'
 function fetchQuery(
   operation,
   variables,

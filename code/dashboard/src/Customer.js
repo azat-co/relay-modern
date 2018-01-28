@@ -13,12 +13,11 @@ class Product extends React.Component {
         <div
           className='w-100'
           style={{
-            backgroundImage: `url(${this.props.product.imageUrl})`,
+            backgroundImage: `url(${this.props.customer.imageUrl})`,
             backgroundSize: 'cover',
             paddingBottom: '100%',
           }}
         />
-
       </div>
     )
   }
@@ -27,13 +26,14 @@ class Product extends React.Component {
 }
 
 const FragmentContainer =  createFragmentContainer(Product, graphql`
-  fragment Product_viewer on Viewer {
+  fragment Customer_viewer on Viewer {
     id
   }
-  fragment Product_product on Product {
+  fragment Customer_customer on Customer {
     id
-    description
-    imageUrl
+    name
+    createdAt
+    updatedAt
   }
 `)
 

@@ -3,16 +3,16 @@ import {
   QueryRenderer,
   graphql
 } from 'react-relay'
-import environment from '../createRelayEnvironment'
-import Home from './Home'
-import ListPage from './ListPage'
+import environment from './createRelayEnvironment'
+
+import ProductList from './ProductList'
+import CustomerList from './CustomerList'
 
 const HomeAllPostQuery = graphql`
   query HomeAllPostQuery {
     viewer {
       ...ProductList_viewer
       ...CustomerList_viewer
-      ...OrdersList_viewer
     }
   }
 `
@@ -28,7 +28,10 @@ class Home extends Component {
             if (error) {
               return <div>{error.message}</div>
             } else if (props) {
-              return <ListPage viewer={props.viewer} />
+              return <div>
+                <ProductList viewer={props.viewer} />
+                <CustomerList/>
+                </div>
             }
             return <div>Loading</div>
           }}
