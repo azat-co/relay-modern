@@ -67,7 +67,11 @@ autoscale:true
 
 ---
 
-## Benefits of Relay Modern
+## 3 Benefits of Relay Modern
+
+* Optimization and caching
+* Data proximity
+* Decoupling
 
 ---
 
@@ -77,6 +81,7 @@ autoscale:true
 * Client for GraphQL backends and front ends - abstraction for queries and mutations
 * Supported by Facebook
 * Need a pre-runtime compiler (to optimize queries)
+* Relay has its own store hence no need for Flux or Redux
 
 ---
 
@@ -218,7 +223,61 @@ export default new Environment({
 })
 ```
 
+--
+
+## GraphQL Backend
+
+* Express + Mongoose + MongoDB
+* Graph.cool (recommended)
+
+---
+
+## Useful Links
+
+* Graph.cool <https://console.graph.cool/Dashboard/schema>
+* React Router <https://reacttraining.com/react-router/web/example/basic>
+* Relay TodoMVC Example <https://github.com/relayjs/relay-examples>
+* Relay Modern API Cheatsheet <https://facebook.github.io/relay/docs/en/api-cheatsheet.html>
+
+---
+
+## Useful Guides
+
+* Relay Guide <https://facebook.github.io/relay/docs/en/quick-start-guide.html>
+* Learn GraphQL <http://graphql.org/learn>
+* Querying Relational Data with GraphQL <https://scaphold.io/community/blog/querying-relational-data-with-graphql/>
+* Redux and Relay <https://www.reindex.io/blog/redux-and-relay>
+
+
+---
+
 # 3. Connecting Relay Modern to GraphQL
+
+---
+
+## Relay Modern Terminology
+
+* graph 
+* nodes
+* edges
+* mutations
+* schema
+* types
+* fragment
+* container
+
+---
+
+<https://sgwilym.github.io/relay-visual-learners>
+
+---
+
+## Dashboard Project
+
+* `code/dashboad`
+* Graph.cool
+* Customer, Product, Order
+* CRA
 
 ---
 
@@ -230,11 +289,40 @@ export default new Environment({
 
 ---
 
+## Connections
+
+---
+
+## Cursor and Pagination
+
+---
+
 # 6. Performing Mutations with Relay Modern
+
+---
+
+## Instakilogram Project
+
+* Mutations: Created and Delete
+* URL Router
+* Fragments
 
 ---
 
 # 7. Advanced Relay Modern Features
 
 ---
+
+## Relay DevTools
+
+<https://chrome.google.com/webstore/detail/relay-devtools/oppikflppfjfdpjimpdadhelffjpciba>
+
+---
+
+## Relay Store Debugger
+
+```
+import storeDebugger from 'relay-runtime/lib/RelayStoreProxyDebugger'
+storeDebugger.dump(proxyStore)
+```
 
