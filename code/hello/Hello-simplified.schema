@@ -1,0 +1,29 @@
+﻿type File @model {
+  contentType: String!
+  createdAt: DateTime!
+  id: ID! @isUnique
+  name: String!
+  secret: String! @isUnique
+  size: Int!
+  updatedAt: DateTime!
+  url: String! @isUnique
+}
+
+type Transaction @model {
+  amount: Int!
+  balanceDue: Int!
+  balanceRequired: Int!
+  createdAt: DateTime!
+  from: String!
+  id: ID! @isUnique
+  linkedPayments: Json!
+  paymentInfo: Json!
+  to: String!
+  updatedAt: DateTime!
+}
+
+type User @model {
+  createdAt: DateTime!
+  id: ID! @isUnique
+  updatedAt: DateTime!
+}
