@@ -1,9 +1,9 @@
-const {
+import {
   Environment,
   Network,
   RecordSource,
   Store,
-} = require('relay-runtime')
+} from 'relay-runtime'
 
 const __RELAY_API_ENDPOINT__ = 'https://api.graph.cool/relay/v1/cjcz40h3u0j3u01588xw2yeph'
 function fetchQuery(
