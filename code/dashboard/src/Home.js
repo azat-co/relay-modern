@@ -17,6 +17,17 @@ const HomeQuery = graphql`
         edges {
           node {
             id
+            customer {
+              name
+            }
+            products {
+              count
+              edges {
+                node {
+                  name
+                }
+              }
+            }
           }
         }
       }
@@ -44,7 +55,10 @@ class Home extends Component {
                     <ProductList viewer={props.viewer} />
                   </div>
                   <div className="col-sm">
-                    
+                  <h2>Orders</h2>
+                    {props.viewer.allOrders.edges.map((node, i)=><div key={i}>
+                      {node.node.customer.name} bought {node.node.products.count} products
+                    </div>)}
                   </div>
                   <div className="col-sm">
                     <CustomerList viewer={props.viewer} />

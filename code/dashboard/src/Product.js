@@ -10,7 +10,7 @@ class Product extends React.Component {
     visibleDetails: false
   }
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     if (this.state.visibleDetails) return (     
       <div className="card" style={{width: '18rem'}}>
         <img className="card-img-top" src={this.props.product.imageUrl} alt="Card image cap" />
