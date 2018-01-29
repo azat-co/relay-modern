@@ -5,8 +5,10 @@ import {
   QueryRenderer,
   graphql
 } from 'react-relay'
+
 import environment from './createRelayEnvironment'
-const AppQuery2 = graphql`
+
+const AppQuery = graphql`
   query AppQuery {
     viewer {
       allTransactions {
@@ -28,7 +30,7 @@ class App extends Component {
     return (
       <QueryRenderer
       environment={environment}
-      query={AppQuery2}
+      query={AppQuery}
       render={({error, props}) => {
         if (error) {
           return <div>{error.message}</div>
