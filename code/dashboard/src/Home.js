@@ -13,12 +13,21 @@ const HomeQuery = graphql`
     viewer {
       ...ProductList_viewer
       ...CustomerList_viewer
+      allOrders {
+        edges {
+          node {
+            id
+          }
+        }
+      }
     }
+
   }
 `
 
 class Home extends Component {
   render() {
+    
     return (
       <div className="row">
         <QueryRenderer
@@ -28,13 +37,14 @@ class Home extends Component {
             if (error) {
               return <div>{error.message}</div>
             } else if (props) {
+              console.log(props)
               return <div className="container">
                 <div className="row">
                   <div className="col-sm">
                     <ProductList viewer={props.viewer} />
                   </div>
                   <div className="col-sm">
-
+                    
                   </div>
                   <div className="col-sm">
                     <CustomerList viewer={props.viewer} />
