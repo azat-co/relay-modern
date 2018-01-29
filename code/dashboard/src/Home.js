@@ -20,17 +20,26 @@ const HomeQuery = graphql`
 class Home extends Component {
   render() {
     return (
-      <div>
+      <div className="row">
         <QueryRenderer
           environment={environment}
           query={HomeQuery}
-          render={({error, props}) => {
+          render={({ error, props }) => {
             if (error) {
               return <div>{error.message}</div>
             } else if (props) {
-              return <div>
-                <ProductList viewer={props.viewer} />
-                <CustomerList viewer={props.viewer}/>
+              return <div className="container">
+                <div className="row">
+                  <div className="col-sm">
+                    <ProductList viewer={props.viewer} />
+                  </div>
+                  <div className="col-sm">
+
+                  </div>
+                  <div className="col-sm">
+                    <CustomerList viewer={props.viewer} />
+                  </div>
+                </div>
               </div>
             }
             return <div>Loading</div>

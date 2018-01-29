@@ -6,29 +6,23 @@ import {
 
 
 class Product extends React.Component {
-
-  render () {
+  state = {
+    visibleDetails: false
+  }
+  render() {
     console.log(this.props)
-    return (
-      <div className=''>
-        {this.props.product.name}<br/>
-        {this.props.product.description}<br/>
-        {JSON.stringify(this.props.product.orders)}<br/>
-        {this.props.product.updatedAt}<br/>
-        {this.props.product.createdAt}<br/>
-        {this.props.product.imageUrl}<br/>
-        {/* <div
-          className='w-100'
-          style={{
-            height: 150,
-            backgroundImage: `url(${this.props.product.imageUrl})`,
-            backgroundSize: 'cover',
-            paddingBottom: '100%',
-          }}
-        /> */}
-
+    if (this.state.visibleDetails) return (     
+      <div className="card" style={{width: '18rem'}}>
+        <img className="card-img-top" src={this.props.product.imageUrl} alt="Card image cap" />
+          <div className="card-body">
+            <h5 className="card-title">{this.props.product.name}</h5>
+            <p className="card-text">{this.props.product.description}</p>
+            <p>Orders: {this.props.product.orders.edges.length}</p>
+            <a href="#" onClick={()=>{this.setState({visibleDetails: false})}} className="btn btn-info">hide</a>
+        </div>
       </div>
-    )
+    ) 
+    else return <h5 className="card-title"><a href="#" onClick={()=>{this.setState({visibleDetails: true})}} >{this.props.product.name}</a></h5>
   }
 }
 
