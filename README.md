@@ -268,10 +268,6 @@ export default new Environment({
 
 ---
 
-<https://sgwilym.github.io/relay-visual-learners>
-
----
-
 ## Dashboard Project
 
 * `code/dashboad`
