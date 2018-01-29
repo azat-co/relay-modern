@@ -31,7 +31,7 @@ class Home extends Component {
               return <div>
                 <ProductList viewer={props.viewer} />
                 <CustomerList viewer={props.viewer}/>
-                </div>
+              </div>
             }
             return <div>Loading</div>
           }}

@@ -16,6 +16,7 @@ export type Product_product = {|
     +edges: ?$ReadOnlyArray<?{|
       +node: {|
         +id: string;
+        +createdAt: any;
       |};
     |}>;
   |};
@@ -82,6 +83,13 @@ const fragment /*: ConcreteFragment*/ = {
                   "alias": null,
                   "args": null,
                   "name": "id",
+                  "storageKey": null
+                },
+                {
+                  "kind": "ScalarField",
+                  "alias": null,
+                  "args": null,
+                  "name": "createdAt",
                   "storageKey": null
                 }
               ],

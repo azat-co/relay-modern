@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash a3628c91d16fa19f94db748984f1f691
+ * @relayHash 4680062c76dfa94c58f4b01c07a7de9b
  */
 
 /* eslint-disable */
@@ -101,6 +101,7 @@ fragment Product_product on Product {
     edges {
       node {
         id
+        createdAt
       }
     }
   }
@@ -268,6 +269,13 @@ const batch /*: ConcreteBatch*/ = {
                                             "alias": null,
                                             "args": null,
                                             "name": "id",
+                                            "storageKey": null
+                                          },
+                                          {
+                                            "kind": "ScalarField",
+                                            "alias": null,
+                                            "args": null,
+                                            "name": "createdAt",
                                             "storageKey": null
                                           }
                                         ],
@@ -569,7 +577,7 @@ const batch /*: ConcreteBatch*/ = {
       }
     ]
   },
-  "text": "query HomeQuery {\n  viewer {\n    ...ProductList_viewer\n    ...CustomerList_viewer\n    id\n  }\n}\n\nfragment ProductList_viewer on Viewer {\n  ...Product_viewer\n  allProducts(last: 100, orderBy: name_DESC) {\n    edges {\n      node {\n        id\n        description\n        name\n        imageUrl\n        ...Product_product\n      }\n    }\n    ... on ProductConnection {\n      edges {\n        cursor\n        node {\n          __typename\n          id\n        }\n      }\n      pageInfo {\n        hasPreviousPage\n        startCursor\n      }\n    }\n  }\n}\n\nfragment CustomerList_viewer on Viewer {\n  ...Customer_viewer\n  allCustomers(last: 100, orderBy: createdAt_DESC) {\n    edges {\n      node {\n        id\n        name\n        ...Customer_customer\n      }\n    }\n    ... on CustomerConnection {\n      edges {\n        cursor\n        node {\n          __typename\n          id\n        }\n      }\n      pageInfo {\n        hasPreviousPage\n        startCursor\n      }\n    }\n  }\n}\n\nfragment Customer_viewer on Viewer {\n  id\n}\n\nfragment Customer_customer on Customer {\n  id\n  name\n  createdAt\n  updatedAt\n}\n\nfragment Product_viewer on Viewer {\n  id\n}\n\nfragment Product_product on Product {\n  id\n  description\n  name\n  orders {\n    edges {\n      node {\n        id\n      }\n    }\n  }\n  imageUrl\n  createdAt\n  updatedAt\n}\n"
+  "text": "query HomeQuery {\n  viewer {\n    ...ProductList_viewer\n    ...CustomerList_viewer\n    id\n  }\n}\n\nfragment ProductList_viewer on Viewer {\n  ...Product_viewer\n  allProducts(last: 100, orderBy: name_DESC) {\n    edges {\n      node {\n        id\n        description\n        name\n        imageUrl\n        ...Product_product\n      }\n    }\n    ... on ProductConnection {\n      edges {\n        cursor\n        node {\n          __typename\n          id\n        }\n      }\n      pageInfo {\n        hasPreviousPage\n        startCursor\n      }\n    }\n  }\n}\n\nfragment CustomerList_viewer on Viewer {\n  ...Customer_viewer\n  allCustomers(last: 100, orderBy: createdAt_DESC) {\n    edges {\n      node {\n        id\n        name\n        ...Customer_customer\n      }\n    }\n    ... on CustomerConnection {\n      edges {\n        cursor\n        node {\n          __typename\n          id\n        }\n      }\n      pageInfo {\n        hasPreviousPage\n        startCursor\n      }\n    }\n  }\n}\n\nfragment Customer_viewer on Viewer {\n  id\n}\n\nfragment Customer_customer on Customer {\n  id\n  name\n  createdAt\n  updatedAt\n}\n\nfragment Product_viewer on Viewer {\n  id\n}\n\nfragment Product_product on Product {\n  id\n  description\n  name\n  orders {\n    edges {\n      node {\n        id\n        createdAt\n      }\n    }\n  }\n  imageUrl\n  createdAt\n  updatedAt\n}\n"
 };
 
 module.exports = batch;

@@ -44,6 +44,7 @@ const FragmentContainer =  createFragmentContainer(Product, graphql`
       edges {
         node {
           id
+          createdAt
         }
       }
     }
